@@ -1,0 +1,22 @@
+﻿@page
+@model OduncAlma.Pages.CreateModel
+@{
+}
+<form method="post">
+    <div class="w-50">
+        <div class=""> 
+            <label class="form-label"asp-for="@Model.OduncVerme.Name"></label>
+            <select class="form-control" asp-for="@Model.OduncVerme.Name" asp-items="@Model.Items" ></select>
+           
+        </div>
+       <div class="">
+           <label class="form-label" asp-for="@Model.OduncVerme.DateGive"></label>
+           <input  class="form-control"asp-for="@Model.OduncVerme.DateGive" value="@DateTime.Today.ToString("yyyy-MM-dd")"/>
+       </div>
+       <div class=""> 
+           <button class="btn btn-primary mt-2" asp-page="Create">EKLE</button><br />
+            <span class="mt-2" asp-validation-for="@Model.OduncVerme.Name"></span>
+       </div>
+   </div>
+    
+</form> 

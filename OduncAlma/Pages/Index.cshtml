@@ -4,7 +4,36 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Item</th>
+      <th scope="col">Daten Given</th>
+      <th scope="col">Date Return</th>
+    </tr>
+  </thead>
+  <tbody>
+      @foreach (var oi in Model.OduncIslem)
+      {          
+        <tr>
+          <td width="10%">@oi.Id</td>
+          <td width="50%">@oi.Name</td>
+          <td width="20%">@oi.DateGive.ToShortDateString()</td>
+          <td width="20%">
+
+                    @if (oi.DateTake is not null)
+                    {
+                        @oi.DateTake
+                    }
+                    else
+                    {
+                    <a asp-page="Return" asp-route-id="@oi.Id" class="btn btn-primary">Return</a>
+                        
+                    }
+              </td>
+        </tr>
+      }
+  
+  </tbody>
+</table>

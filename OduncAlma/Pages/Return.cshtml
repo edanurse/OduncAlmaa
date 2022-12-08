@@ -1,0 +1,28 @@
+﻿@page
+@model OduncAlma.Pages.ReturnModel
+@{
+}
+<div class="container">
+    <div class="w-25">
+        <form method="post">
+            <input hidden asp-for="@Model.OduncVerme.Id" />
+            <div class="my-2">
+                <label class="form-label" asp-for="@Model.OduncVerme.Name"></label>
+                <input readonly class="form-control" asp-for="@Model.OduncVerme.Name"/>
+            </div>
+            <div class="">
+                <label class="form-label" asp-for="@Model.OduncVerme.DateGive"></label>
+                <input readonly class="form-control" asp-for="@Model.OduncVerme.DateGive" value="@DateTime.Today.ToString("yyyy-MM-dd")" />
+                
+                <label class="form-label" asp-for="@Model.OduncVerme.DateTake"></label>
+                <input class="form-control" asp-for="@Model.OduncVerme.DateTake" value="@DateTime.Today.ToString("yyyy-MM-dd")" />
+                
+                <div class="my-2 text-end">
+                <input class="btn btn-primary" type="submit" value="Return OK" />
+             </div>
+             <div class="container" asp-validation-summary="All">
+             </div>
+            </div>
+        </form>
+    </div>
+</div>

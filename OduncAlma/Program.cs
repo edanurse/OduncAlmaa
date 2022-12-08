@@ -1,7 +1,13 @@
+using Microsoft.EntityFrameworkCore;
+using OduncAlma.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<OduncAlmaDbContext>(options => options.UseSqlServer(
+builder.Configuration.GetConnectionString("DefaultConnection")
+));
 
 var app = builder.Build();
 
